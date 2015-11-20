@@ -17,3 +17,5 @@ make
 
 sudo ./loldht 7
 
+cd ~
+git clone https://github.com/mronnlun/Raspberry-thermometer
