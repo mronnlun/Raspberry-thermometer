@@ -14,15 +14,15 @@ temperature="${BASH_REMATCH[2]}"
 echo temperature $temperature
 
 currdate=$(date +"%Y-%m-%dT%H:%M:%S") 
-echo $currdate $temperature $hum
+echo $currdate $temperature $hum >> ~/persistenttemperaturelog.txt
 
 key=$(<$HOME/thingspeak-key.txt)
 
 url="https://api.thingspeak.com/update?key=$key&field1=$temperature&field2=$hum"
-#echo $url
+echo $url
 
 result="$(curl -s $url > /home/pi/thingspeak_curl_silent.txt)"
-#echo result $result
+echo result $result
 
 
 
