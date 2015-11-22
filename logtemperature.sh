@@ -8,15 +8,33 @@ regex='Humidity = ([0-9]+\.[0-9]+) % Temperature = ([0-9]+\.[0-9]+)'
 [[ $output =~ $regex ]]
 
 hum="${BASH_REMATCH[1]}"
-#echo hum $hum
+#hum="120.5"
+echo hum $hum
+
+humint=${hum%.*}
+echo humint $humint
+
+if [ "$humint" -gt "100" ] || [ "$humint" -lt 0 ]
+  then
+        echo "not valid humidity"
+        hum=""
+fi
 
 temperature="${BASH_REMATCH[2]}"
-#echo temperature $temperature
+#temperature="60.4"
+echo temperature $temperature
 
 temperatureint=${temperature%.*}
 echo tempint $temperatureint
 
-currdate=$(date +"%Y-%m-%dT%H:%M:%S") 
+if [ "$temperatureint" -gt "50" ] || [ "$temperatureint" -lt -30 ]
+  then
+        echo "not valid temp"
+        temperature=""
+fi
+
+currdate=$(date -u +"%Y-%m-%dT%H:%M:%S")
+echo $currdate
 echo $currdate $temperature $hum >> ~/persistenttemperaturelog.txt
 
 key=$(<$HOME/thingspeak-key.txt)
