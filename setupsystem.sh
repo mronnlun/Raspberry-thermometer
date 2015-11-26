@@ -1,6 +1,8 @@
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get clean
+sudo apt-get install bc
+sudo apt-get install nginx
 
 cd $HOME
 mkdir bin
@@ -19,3 +21,8 @@ sudo ./loldht 7
 
 cd ~
 git clone https://github.com/mronnlun/Raspberry-thermometer
+
+cd /var/www/html/
+sudo rm index.nginx-debian.html
+cd ~/Raspberry-thermometer
+sudo cp index.html /var/www/html/
