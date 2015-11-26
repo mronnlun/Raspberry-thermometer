@@ -1,7 +1,6 @@
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get clean
-sudo apt-get install bc
 sudo apt-get install nginx
 
 cd $HOME
