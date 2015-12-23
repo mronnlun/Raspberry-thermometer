@@ -1,5 +1,8 @@
 #!/bin/bash
 
+pkill loldht
+sudo rm /var/run/dht.lock
+
 output="$(sudo /home/pi/bin/lol_dht22/loldht 7)"
 echo $output > /home/pi/logoutput.txt
 
