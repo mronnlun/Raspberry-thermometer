@@ -18,10 +18,7 @@ make
 
 sudo ./loldht 7
 
-cd ~
-git clone https://github.com/mronnlun/Raspberry-thermometer
-
-cd Raspberry-thermometer/
+cd ~/Raspberry-thermometer/
 chmod 755 duckdns.sh
 chmod 755 logtemperature.sh
 
